@@ -8,10 +8,10 @@
     :root {
       --bg: #080B14;
       --card: #0D0B0A;
-      --card-soft: #15100C;
+      --surface: #15100C;
       --text: #F5F0E8;
       --muted: #9A8F80;
-      --muted-dark: #6B5F4E;
+      --subtle: #6B5F4E;
       --gold: #C9A84C;
       --border: #2E2A24;
     }
@@ -22,116 +22,92 @@
 
     body {
       margin: 0;
-      background:
-        radial-gradient(circle at top, rgba(201, 168, 76, 0.13), transparent 34rem),
-        linear-gradient(180deg, #080B14 0%, #070910 100%);
+      background: radial-gradient(circle at top, rgba(201, 168, 76, 0.12), transparent 32%),
+                  linear-gradient(180deg, #0D0B0A 0%, var(--bg) 100%);
       color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.65;
     }
 
-    .page {
-      width: min(920px, calc(100% - 32px));
+    .container {
+      max-width: 860px;
       margin: 0 auto;
-      padding: 56px 0 64px;
+      padding: 48px 22px 64px;
     }
 
     .hero {
-      padding: 32px;
-      background: linear-gradient(180deg, rgba(13, 11, 10, 0.98), rgba(13, 11, 10, 0.88));
+      padding: 34px 26px;
+      background: rgba(13, 11, 10, 0.82);
       border: 1px solid var(--border);
-      border-radius: 28px;
+      border-radius: 24px;
       box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+      margin-bottom: 28px;
     }
 
     .eyebrow {
-      margin: 0 0 10px;
       color: var(--gold);
       font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.18em;
+      letter-spacing: 2px;
       text-transform: uppercase;
+      margin-bottom: 10px;
     }
 
     h1 {
+      margin: 0 0 10px;
+      font-size: 36px;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .updated {
+      color: var(--muted);
+      font-size: 14px;
       margin: 0;
-      font-size: clamp(34px, 6vw, 56px);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-    }
-
-    .subtitle {
-      max-width: 700px;
-      margin: 18px 0 0;
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      background: var(--card-soft);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .pill strong {
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .content {
-      display: grid;
-      gap: 16px;
-      margin-top: 22px;
     }
 
     section {
-      padding: 26px;
-      background: rgba(13, 11, 10, 0.92);
+      background: rgba(13, 11, 10, 0.72);
       border: 1px solid var(--border);
-      border-radius: 22px;
+      border-radius: 20px;
+      padding: 24px;
+      margin: 18px 0;
     }
 
     h2 {
-      margin: 0 0 12px;
       color: var(--text);
-      font-size: 22px;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
+      margin: 0 0 12px;
+      font-size: 21px;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
     }
 
     h3 {
-      margin: 22px 0 8px;
       color: var(--gold);
+      margin: 20px 0 8px;
       font-size: 15px;
-      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     p {
-      margin: 0 0 12px;
       color: var(--muted);
+      margin: 0 0 12px;
     }
 
     ul {
-      margin: 10px 0 0;
-      padding-left: 20px;
+      margin: 8px 0 0;
+      padding-left: 22px;
       color: var(--muted);
     }
 
     li {
-      margin: 8px 0;
+      margin-bottom: 8px;
+    }
+
+    strong {
+      color: var(--text);
+      font-weight: 650;
     }
 
     a {
@@ -143,231 +119,287 @@
       text-decoration: underline;
     }
 
-    .callout {
-      padding: 16px;
+    .note {
       background: rgba(201, 168, 76, 0.08);
       border: 1px solid rgba(201, 168, 76, 0.22);
-      border-radius: 16px;
       color: var(--muted);
+      border-radius: 16px;
+      padding: 16px;
+      margin-top: 14px;
     }
 
     .footer {
-      margin-top: 24px;
       text-align: center;
-      color: var(--muted-dark);
+      color: var(--subtle);
       font-size: 13px;
+      margin-top: 34px;
     }
 
-    @media (max-width: 640px) {
-      .page {
-        padding: 28px 0 44px;
+    .divider {
+      width: 64px;
+      height: 1px;
+      background: var(--border);
+      margin: 26px auto;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 32px 16px 48px;
       }
 
-      .hero,
+      .hero {
+        padding: 28px 20px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
       section {
-        padding: 22px;
-        border-radius: 22px;
+        padding: 20px;
       }
     }
   </style>
 </head>
+
 <body>
-  <main class="page">
-    <header class="hero">
-      <p class="eyebrow">Kneel</p>
+  <main class="container">
+    <div class="hero">
+      <div class="eyebrow">Kneel</div>
       <h1>Privacy Policy</h1>
-      <p class="subtitle">
-        This Privacy Policy explains how Kneel handles information when you use our daily prayer, reflection, reminder, history, stained glass collection, and subscription features.
-      </p>
-
-      <div class="meta">
-        <span class="pill"><strong>Last updated:</strong> May 14, 2026</span>
-        <span class="pill"><strong>Owner:</strong> Enes Keskin</span>
-        <span class="pill"><strong>Contact:</strong> <a href="mailto:keskkeness@hotmail.com">keskkeness@hotmail.com</a></span>
-      </div>
-    </header>
-
-    <div class="content">
-      <section>
-        <h2>1. Overview</h2>
-        <p>
-          Kneel is a Christian daily prayer app designed to help users read a daily prayer, maintain a devotional habit, receive optional reminders, view prayer history, and unlock stained glass collection pieces through completed prayer days.
-        </p>
-        <p>
-          We aim to collect as little personal information as possible. Most prayer progress and app activity data is stored locally on your device and is used only to provide the app experience.
-        </p>
-      </section>
-
-      <section>
-        <h2>2. Information We Collect</h2>
-
-        <h3>Prayer progress and app activity</h3>
-        <p>
-          Kneel may store app progress on your device, including completed prayer days, unlocked stained glass pieces, prayer history entries, and the prayer key associated with a completed day.
-        </p>
-        <ul>
-          <li>This information is primarily stored locally on your device.</li>
-          <li>It is used to display your prayer history, collection progress, and completed days.</li>
-          <li>Kneel does not require you to create an account to use these local progress features.</li>
-        </ul>
-
-        <h3>Notification preferences</h3>
-        <p>
-          If you enable daily reminders, Kneel may store your reminder preference and selected reminder time on your device. Notifications are scheduled only after you grant permission through iOS.
-        </p>
-
-        <h3>Purchases and subscriptions</h3>
-        <p>
-          If you purchase a subscription, the transaction is processed by Apple through the App Store. We do not receive your full payment card number, banking details, or Apple ID password.
-        </p>
-        <p>
-          Kneel may use Apple’s in-app purchase system and third-party subscription infrastructure such as RevenueCat to validate subscription status, restore purchases, and manage access to premium features.
-        </p>
-
-        <h3>Support and feedback</h3>
-        <p>
-          If you contact us by email, we may receive your email address and the information you choose to include in your message. We use this information only to respond to your request, provide support, troubleshoot issues, and improve the app.
-        </p>
-
-        <h3>Technical information</h3>
-        <p>
-          Apple, the App Store, and subscription-related services may process limited technical information necessary to provide the app, process purchases, prevent fraud, and maintain app functionality.
-        </p>
-      </section>
-
-      <section>
-        <h2>3. Information We Do Not Intentionally Collect</h2>
-        <p>Kneel does not intentionally require or collect:</p>
-        <ul>
-          <li>Your real-world identity beyond what you voluntarily provide in support emails</li>
-          <li>Your phone number</li>
-          <li>Your precise location</li>
-          <li>Your contacts</li>
-          <li>Your photos or camera access</li>
-          <li>Your microphone access</li>
-          <li>Your health data</li>
-          <li>Your private religious affiliation beyond your voluntary use of a Christian prayer app</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>4. How We Use Information</h2>
-        <p>We use information only for app-related purposes, including to:</p>
-        <ul>
-          <li>Display daily prayers and reflections</li>
-          <li>Track completed prayer days</li>
-          <li>Show prayer history and collection progress</li>
-          <li>Schedule local daily reminders when enabled</li>
-          <li>Manage subscription access and restore purchases</li>
-          <li>Respond to support and feedback requests</li>
-          <li>Maintain and improve the app experience</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>5. Local Storage</h2>
-        <p>
-          Kneel stores certain progress and settings locally on your device. This may include completed prayer days, reminder time, notification preference, prayer history markers, and collection progress.
-        </p>
-        <p>
-          If you delete the app, reset progress, or clear app data, locally stored progress may be removed and may not be recoverable.
-        </p>
-      </section>
-
-      <section>
-        <h2>6. Notifications</h2>
-        <p>
-          Daily reminders are optional. You may enable or disable notifications in the app settings or through your device settings.
-        </p>
-        <p>
-          Kneel uses reminders to help you return to your prayer habit. We do not use notifications to collect sensitive personal information.
-        </p>
-      </section>
-
-      <section>
-        <h2>7. Subscriptions and App Store Purchases</h2>
-        <p>
-          Paid features may be offered through auto-renewable subscriptions or other in-app purchases. Purchases are handled by Apple through your App Store account.
-        </p>
-        <ul>
-          <li>Apple processes your payment information.</li>
-          <li>You can manage or cancel subscriptions through your Apple ID settings.</li>
-          <li>We may use subscription validation services to determine whether premium access is active.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>8. Third-Party Services</h2>
-        <p>Kneel may rely on third-party services for limited app functionality, including:</p>
-        <ul>
-          <li>Apple App Store and StoreKit for purchases and subscription management</li>
-          <li>Apple Push Notification services for reminders, if enabled</li>
-          <li>RevenueCat for subscription validation and entitlement management, if used in the app</li>
-        </ul>
-        <p>
-          These services may process information according to their own privacy policies and terms.
-        </p>
-      </section>
-
-      <section>
-        <h2>9. Data Sharing</h2>
-        <p>
-          We do not sell your personal information. We do not share your personal information with advertisers.
-        </p>
-        <p>
-          We may share limited information only when necessary to operate the app, process purchases, respond to support requests, comply with legal obligations, or protect the security and integrity of the app.
-        </p>
-      </section>
-
-      <section>
-        <h2>10. Children’s Privacy</h2>
-        <p>
-          Kneel is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13.
-        </p>
-        <p>
-          If you believe a child has provided personal information to us, contact us at <a href="mailto:keskkeness@hotmail.com">keskkeness@hotmail.com</a> and we will take appropriate steps.
-        </p>
-      </section>
-
-      <section>
-        <h2>11. Data Retention</h2>
-        <p>
-          Local app progress remains on your device until you delete the app, reset progress, or otherwise remove the data. Support emails may be retained as long as reasonably necessary to respond to your request and maintain support records.
-        </p>
-      </section>
-
-      <section>
-        <h2>12. Your Choices</h2>
-        <ul>
-          <li>You can disable notifications in the app or device settings.</li>
-          <li>You can reset progress inside the app settings.</li>
-          <li>You can manage subscriptions through your Apple ID settings.</li>
-          <li>You can contact us to ask questions about this policy.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>13. Changes to This Policy</h2>
-        <p>
-          We may update this Privacy Policy from time to time. If we make changes, we will update the “Last updated” date at the top of this page.
-        </p>
-      </section>
-
-      <section>
-        <h2>14. Contact</h2>
-        <div class="callout">
-          <p>
-            If you have questions about this Privacy Policy or how Kneel handles information, contact:
-          </p>
-          <p>
-            <strong>Enes Keskin</strong><br />
-            <a href="mailto:keskkeness@hotmail.com">keskkeness@hotmail.com</a>
-          </p>
-        </div>
-      </section>
+      <p class="updated">Last updated: May 14, 2026</p>
     </div>
 
-    <p class="footer">© 2026 Kneel. All rights reserved.</p>
+    <section>
+      <h2>1. Introduction</h2>
+      <p>
+        Kneel is a Christian prayer app designed to help users build a daily rhythm of prayer,
+        reflection, and devotional consistency.
+      </p>
+      <p>
+        This Privacy Policy explains what information we collect, how we use it, and the choices
+        you have when using Kneel.
+      </p>
+      <p>
+        By using Kneel, you agree to the collection and use of information as described in this
+        Privacy Policy.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. Information We Collect</h2>
+      <p>
+        Kneel is designed to collect only the information needed to provide the app experience,
+        improve reliability, understand general product usage, and manage subscriptions.
+      </p>
+
+      <h3>Information You Provide</h3>
+      <ul>
+        <li>Your first name, if you choose to enter it during onboarding.</li>
+        <li>Your onboarding answers, such as prayer goals, preferred prayer time, life stage, and faith-related preferences.</li>
+        <li>Your notification preference and reminder time, if you choose to enable reminders.</li>
+      </ul>
+
+      <h3>Prayer and Progress Information</h3>
+      <ul>
+        <li>Whether you completed a daily prayer.</li>
+        <li>Your completed prayer dates.</li>
+        <li>Your unlocked stained glass collection progress.</li>
+        <li>Your prayer history shown inside the app.</li>
+      </ul>
+
+      <h3>Usage and Interaction Information</h3>
+      <ul>
+        <li>App screens opened, such as Home, History, Collection, Settings, onboarding, and paywall screens.</li>
+        <li>Basic interaction events, such as tapping buttons, opening plans, restoring purchases, or viewing collection items.</li>
+        <li>Paywall interaction events, including which paywall screens were viewed and how long certain paywall screens were viewed.</li>
+      </ul>
+
+      <h3>Account and Subscription Information</h3>
+      <ul>
+        <li>An anonymous user identifier created through Firebase Anonymous Authentication.</li>
+        <li>Subscription status, purchase attempts, restore attempts, and entitlement status through RevenueCat.</li>
+        <li>Store product information needed to display subscription options and process purchases.</li>
+      </ul>
+
+      <div class="note">
+        Some onboarding answers may relate to your faith journey or prayer habits. We use this
+        information only to personalize and improve the app experience. You should avoid entering
+        information that you do not want associated with your anonymous app profile.
+      </div>
+    </section>
+
+    <section>
+      <h2>3. How We Use Information</h2>
+      <p>We use the information we collect to:</p>
+      <ul>
+        <li>Provide daily prayer content and devotional progress features.</li>
+        <li>Show your prayer history and stained glass collection progress.</li>
+        <li>Personalize parts of the onboarding and app experience.</li>
+        <li>Send reminders if you enable notifications.</li>
+        <li>Process, validate, and restore subscriptions.</li>
+        <li>Understand which screens and features are being used.</li>
+        <li>Identify bugs, improve usability, and make product decisions.</li>
+        <li>Protect the app from misuse and maintain app reliability.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Third-Party Services</h2>
+      <p>
+        Kneel uses trusted third-party services to operate essential app functionality.
+      </p>
+
+      <h3>Firebase</h3>
+      <p>
+        We use Firebase Authentication and Firebase Firestore to create an anonymous user profile,
+        store app progress, save onboarding-related answers, and record lightweight app usage events.
+      </p>
+
+      <h3>RevenueCat</h3>
+      <p>
+        We use RevenueCat to manage subscriptions, determine whether you have premium access,
+        process purchase-related status, and restore purchases.
+      </p>
+
+      <h3>Apple App Store</h3>
+      <p>
+        Purchases and subscriptions are processed through Apple’s App Store payment system.
+        Kneel does not receive or store your full payment card details.
+      </p>
+    </section>
+
+    <section>
+      <h2>5. Subscriptions and Purchases</h2>
+      <p>
+        If you purchase a subscription, the transaction is handled by Apple through your App Store
+        account. RevenueCat helps us verify whether your subscription is active so the app can unlock
+        the appropriate features.
+      </p>
+      <p>
+        We may store purchase-related status, such as whether a purchase was attempted, cancelled,
+        failed, restored, or successfully activated. This helps us debug subscription issues and
+        improve the purchase experience.
+      </p>
+    </section>
+
+    <section>
+      <h2>6. Notifications</h2>
+      <p>
+        Kneel may ask for permission to send daily prayer reminders. Notifications are optional.
+        You can enable, disable, or change notification permissions at any time in your device
+        settings.
+      </p>
+      <p>
+        If you choose a reminder time, that preference may be stored locally on your device and may
+        also be used to schedule your daily reminder.
+      </p>
+    </section>
+
+    <section>
+      <h2>7. Data Storage and Security</h2>
+      <p>
+        We use reasonable technical measures to protect the information processed through Kneel.
+        However, no method of transmission or storage is completely secure, and we cannot guarantee
+        absolute security.
+      </p>
+      <p>
+        Some data is stored locally on your device using Apple-provided storage mechanisms. Some
+        app usage, onboarding, and subscription-related data may be stored using Firebase and
+        RevenueCat.
+      </p>
+    </section>
+
+    <section>
+      <h2>8. Data Retention</h2>
+      <p>
+        We retain information for as long as reasonably necessary to provide the app, maintain your
+        progress, support subscriptions, improve the service, comply with legal obligations, and
+        resolve technical issues.
+      </p>
+      <p>
+        If you reset your progress inside the app, some locally stored prayer progress may be removed
+        from your device. Server-side analytics, subscription records, or technical logs may remain
+        where needed for reliability, fraud prevention, legal, or business purposes.
+      </p>
+    </section>
+
+    <section>
+      <h2>9. Your Choices and Rights</h2>
+      <p>
+        Depending on your location, you may have rights to request access, correction, deletion, or
+        restriction of certain personal information.
+      </p>
+      <p>
+        You can contact us to request deletion or review of data associated with your app usage.
+        Because Kneel uses anonymous authentication, we may need information from your app instance
+        or device context to locate the relevant anonymous account.
+      </p>
+      <p>
+        You can also:
+      </p>
+      <ul>
+        <li>Disable notifications in your device settings.</li>
+        <li>Cancel or manage subscriptions through your Apple App Store account.</li>
+        <li>Use the reset progress option inside the app to clear certain local progress data.</li>
+        <li>Stop using the app and delete it from your device.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>10. Children’s Privacy</h2>
+      <p>
+        Kneel is not intended for children under 13. We do not knowingly collect personal information
+        from children under 13. If you believe a child has provided information to us, please contact
+        us so we can take appropriate action.
+      </p>
+    </section>
+
+    <section>
+      <h2>11. International Users</h2>
+      <p>
+        Your information may be processed and stored in countries other than your own. By using
+        Kneel, you understand that your information may be transferred to and processed in locations
+        where our service providers operate.
+      </p>
+    </section>
+
+    <section>
+      <h2>12. We Do Not Sell Your Personal Information</h2>
+      <p>
+        We do not sell your personal information. We do not use your prayer data or onboarding
+        answers for third-party advertising.
+      </p>
+    </section>
+
+    <section>
+      <h2>13. Changes to This Privacy Policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time. If we make changes, we will update the
+        “Last updated” date at the top of this page. Continued use of Kneel after changes means you
+        accept the updated Privacy Policy.
+      </p>
+    </section>
+
+    <section>
+      <h2>14. Contact Us</h2>
+      <p>
+        If you have questions, requests, or concerns about this Privacy Policy, you can contact us at:
+      </p>
+      <p>
+        <strong>Email:</strong>
+        <a href="mailto:keskkeness@hotmail.com">keskkeness@hotmail.com</a>
+      </p>
+      <p>
+        <strong>Developer:</strong> Enes Keskin
+      </p>
+    </section>
+
+    <div class="divider"></div>
+
+    <p class="footer">
+      © 2026 Kneel. All rights reserved.
+    </p>
   </main>
 </body>
 </html>
